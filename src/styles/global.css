@@ -1071,6 +1071,14 @@ header .logo span {
     color: var(--color-btn-yellow);
 }
 
+.price-card--yellow .price-card__price:hover,
+.price-card--yellow-with-tag .price-card__price:hover,
+.price-card--yellow .price-card__price:active,
+.price-card--yellow-with-tag .price-card__price:active {
+    background-color: transparent;
+    color: var(--color-btn-blue);
+    border-color: var(--color-btn-blue);
+}
 .price-card__badge {
     display: inline-flex;
     flex-direction: column;
