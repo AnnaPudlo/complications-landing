@@ -1,12 +1,12 @@
 {
     "hero_top": {
-        "logo_title": "/images/logo-title.png",
+        "logo_title": "images/logo-title.png",
         "title": "— конференція, що поєднує глибину наукового змісту та силу людяності.",
         "text": "Подія відбувається у форматі <span class=\"highlight\">благодійної ініціативи</span>: кожен квиток, кожна участь — це внесок у допомогу тим, хто зараз живе в місцях, де зникла звична цивілізація, але залишилася надія.",
         "button_link": "#pricing",
         "button_text": "Придбати участь",
         "logo_link": "#",
-        "logo_link_img": "/images/StellarUA.png"
+        "logo_link_img": "images/StellarUA.png"
     },
     "hero_bottom": {
         "title": "",
