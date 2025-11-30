@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    output: 'static',
+    site: 'https://AnnaPudlo.github.io/complications-landing/',
     base: '/complications-landing/',
-    site: 'https://AnnaPudlo.github.io/complications-landing/'
+    output: 'static'
 });
