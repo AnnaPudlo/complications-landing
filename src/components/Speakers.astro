@@ -1,0 +1,75 @@
+---
+import data from "../data/speakers.json";
+
+const { title, subtitle, speakers } = data;
+
+const midpoint = Math.ceil(speakers.length / 2);
+const col1 = speakers.slice(0, midpoint);
+const col2 = speakers.slice(midpoint);
+---
+
+<section class="speakers" id="speakers">
+  <div class="container">
+    <div class="speakers__header">
+      <h2 class="speakers__title">{title}</h2>
+      {subtitle && <p class="speakers__subtitle">{subtitle}</p>}
+    </div>
+
+    <div class="speakers-columns">
+        <div class="col-1">
+            {col1.map((speaker) => (
+            <div class="speaker-card">
+                <div class="speaker-card__image-wrap">
+                <img
+                    src={speaker.photo}
+                    alt={speaker.name}
+                    loading="lazy"
+                />
+                </div>
+
+                <div class="speaker-card__content">
+                <h3 class="speaker-card__name">{speaker.name.split("\n").map((line) => (
+                    <>
+                    {line}
+                    <br />
+                    </>
+                ))}</h3>
+
+                {speaker.position && (
+                    <p class="speaker-card__position"><span class="speaker-card__dot"></span>{speaker.position}</p>
+                )}
+
+                </div>
+            </div>
+            ))}
+        </div>
+
+        <div class="col-2">
+            {col2.map((speaker) => (
+            <div class="speaker-card">
+                <div class="speaker-card__image-wrap">
+                <img
+                    src={speaker.photo}
+                    alt={speaker.name}
+                    loading="lazy"
+                />
+                </div>
+
+                <div class="speaker-card__content">
+                <h3 class="speaker-card__name">{speaker.name.split("\n").map((line) => (
+                    <>
+                    {line}
+                    <br />
+                    </>
+                ))}</h3>
+
+                {speaker.position && (
+                    <p class="speaker-card__position"><span class="speaker-card__dot"></span>{speaker.position}</p>
+                )}
+                </div>
+            </div>
+            ))}
+        </div>
+    </div>
+  </div>
+</section>

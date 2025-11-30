@@ -1,0 +1,52 @@
+---
+import Button from './Button.astro';
+import data from "../data/hero.json";
+
+const { hero_top, hero_bottom, dates, location } = data;
+---
+
+<section class="hero">
+	<div class="hero-row hero-top" id="event">
+		<div class="hero__content">
+			<div class="text-wrapper">
+				<h1>{hero_top.logo_title &&<img src={hero_top.logo_title} alt="Complications">}{hero_top.title}</h1>
+				<p set:html={hero_top.text}></p>
+			</div>
+			<div class="buttons-wrapper">
+				<Button link={hero_top.button_link} text={hero_top.button_text}/>
+				<a href="{hero_top.logo_link}" class="logo-link">
+					<img src={hero_top.logo_link_img} />
+				</a>
+			</div>
+		</div>
+		<div class="hero__image">
+            <div class="image-wrapper">
+                <img src="../images/hero-top.png" alt="">
+            </div>
+        </div>
+
+		<div class="hero-dates">
+			<div class="content">
+				{dates &&<span class="date">{dates}</span>}
+				{location &&<span class="place">{location}</span>}
+			</div>
+		</div>
+	</div>
+
+	<div class="hero-row hero-bottom">
+		<div class="hero__image">
+            <div class="image-wrapper">
+                <img src="../images/hero-bottom.png" alt="">
+            </div>
+        </div>
+		<div class="hero__content">
+			<div class="text-wrapper">
+				{hero_bottom.title && <h2 class="hero__title">{hero_bottom.title}</h2>}
+                {hero_bottom.text && <div class="hero__text">{hero_bottom.text.map((paragraph) => (
+                    <p set:html={paragraph}></p>
+                ))}</div>}
+
+			</div>
+		</div>
+	</div>
+</section>

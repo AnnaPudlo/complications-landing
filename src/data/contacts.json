@@ -1,0 +1,35 @@
+{
+  "title": "Локація та контакти",
+  "placeTitle": "ХАРКІВ. КОНГРЕС НЕЗАЛЕЖНИХ ПРОФЕСІОНАЛІВ",
+  "eventName": "COMPLICATIONS",
+
+  "paragraphs": [
+    {
+      "icon": "/images/icons/chat.svg",
+      "text": "З міркувань безпеки адресу події ми повідомимо особисто кожному учаснику за день до конференції."
+    },
+    {
+      "icon": "/images/icons/shield.svg",
+      "text": "Ми дбаємо про вашу безпеку й організовуємо конференцію у просторі, що відповідає всім вимогам захисту, безпеки та комфорту."
+    },
+    {
+      "icon": "/images/icons/home.svg",
+      "text": "Офіційне укриття. Абсолютно безпечний простір"
+    }
+  ],
+
+  "contacts": {
+    "telegram": {
+      "label": "Telegram-чат учасників",
+      "href": "https://t.me/example"
+    },
+    "instagram": {
+      "label": "Instagram",
+      "href": "https://instagram.com/example"
+    },
+    "email": {
+      "label": "Email",
+      "href": "mailto:info@example.com"
+    }
+  }
+}

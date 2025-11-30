@@ -1,0 +1,229 @@
+---
+import data from "../data/program.json";
+import data2 from "../data/hero.json";
+import Button from "../components/Button.astro";
+
+const { title, days } = data;
+const { dates, location } = data2;
+
+const leftDays = days.slice(0, 2);
+const rightDays = days.slice(2);
+
+const cleanArray = (arr) => Array.isArray(arr) ? arr.filter(Boolean) : [];
+---
+
+<section class="program" id="program">
+  <div class="container">
+    <h2 class="program__title">{title}</h2>
+
+    <div class="program__columns">
+
+      <div class="program__col program__col--left">
+        {leftDays.map((day) => (
+          <div class="program-day">
+            <div class="program-day__header">
+              <p class="program-day__date">{day.date}</p>
+
+
+              {day.logo_title ? (
+                <div class="program-day__logo">
+                  <img src={day.logo_title} alt={day.tag || ""} loading="lazy" />
+                </div>
+              ) : (
+                <>
+                  {day.subtitle && (
+                    <p class="program-day__subtitle">{day.subtitle}</p>
+                  )}
+                  {day.tag && (
+                    <h3 class="program-day__tag">{day.tag}</h3>
+                  )}
+                </>
+              )}
+            </div>
+
+
+            {cleanArray(day.speakers).length > 0 && (
+              <p class="program-day__speakers">
+                {cleanArray(day.speakers).map((speaker, i) => (
+                  <>
+                    <span class="program-day__speaker">{speaker}</span>
+                    {i < cleanArray(day.speakers).length - 1 && ""}
+                  </>
+                ))}
+              </p>
+            )}
+
+
+            {Array.isArray(day.description) &&
+              day.description.map((text) => (
+                <p class="program-day__text" set:html={text}></p>
+              ))}
+
+
+            {Array.isArray(day.talks) &&
+              day.talks.map((talk) => (
+                <div class="talk">
+                  {talk.title && (
+                    <h3 class="talk__title">{talk.title}</h3>
+                  )}
+
+                  {cleanArray(talk.speakers).length > 0 && (
+                    <p class="talk__speakers">
+                      {cleanArray(talk.speakers).join(", ")}
+                    </p>
+                  )}
+
+
+                  {Array.isArray(talk.description)
+                    ? talk.description.map((d) => (
+                        <p class="talk__description" set:html={d}></p>
+                      ))
+                    : talk.description && (
+                        <p class="talk__description" set:html={talk.description}></p>
+                      )}
+
+
+                  {Array.isArray(talk.schedule) && talk.schedule.length > 0 && (
+                    <dl class="talk__schedule">
+                      {talk.schedule.map((item) =>
+                        item.time || item.text ? (
+                          <>
+                            {item.time && (
+                              <dt class="talk__time">{item.time}</dt>
+                            )}
+                            {item.text && (
+                              <dd class="talk__event" set:html={item.text}></dd>
+                            )}
+                          </>
+                        ) : null
+                      )}
+                    </dl>
+                  )}
+
+
+                  {(talk.button?.note || talk.button) && (
+                    <div class="talk__footer">
+                      {talk.button?.note && (
+                        <p class="talk__note">{talk.button.note}</p>
+                      )}
+                      {talk.button && (
+                        <Button
+                          link={talk.button.link}
+                          text={talk.button.text}
+                          variant="primary"
+                          size="md"
+                        />
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="program__col program__col--right">
+        {rightDays.map((day) => (
+          <div class="program-day">
+            <div class="program-day__header">
+              <p class="program-day__date">{day.date}</p>
+
+              {day.logo_title ? (
+                <div class="program-day__logo">
+                  <img src={day.logo_title} alt={day.tag || ""} loading="lazy" />
+                </div>
+              ) : (
+                <>
+                  {day.tag && (
+                    <h3 class="program-day__tag">{day.tag}</h3>
+                  )}
+                  {day.subtitle && (
+                    <p class="program-day__subtitle">{day.subtitle}</p>
+                  )}
+                </>
+              )}
+            </div>
+
+            {cleanArray(day.speakers).length > 0 && (
+              <p class="program-day__speakers">
+                {cleanArray(day.speakers).map((speaker, i) => (
+                  <>
+                    <span class="program-day__speaker">{speaker}</span>
+                    {i < cleanArray(day.speakers).length - 1 && ""}
+                  </>
+                ))}
+              </p>
+            )}
+
+            {Array.isArray(day.description) &&
+              day.description.map((text) => (
+                <p class="program-day__text" set:html={text}></p>
+              ))}
+
+            {Array.isArray(day.talks) &&
+              day.talks.map((talk) => (
+                <div class="talk">
+                  {talk.title && (
+                    <h3 class="talk__title">{talk.title}</h3>
+                  )}
+
+                  {cleanArray(talk.speakers).length > 0 && (
+                    <p class="talk__speakers">
+                      {cleanArray(talk.speakers).join(", ")}
+                    </p>
+                  )}
+
+                  {Array.isArray(talk.description)
+                    ? talk.description.map((d) => (
+                        <p class="talk__description" set:html={d}></p>
+                      ))
+                    : talk.description && (
+                        <p class="talk__description" set:html={talk.description}></p>
+                      )}
+
+                  {Array.isArray(talk.schedule) && talk.schedule.length > 0 && (
+                    <dl class="talk__schedule">
+                      {talk.schedule.map((item) =>
+                        item.time || item.text ? (
+                          <>
+                            {item.time && (
+                              <dt class="talk__time">{item.time}</dt>
+                            )}
+                            {item.text && (
+                              <dd class="talk__event" set:html={item.text}></dd>
+                            )}
+                          </>
+                        ) : null
+                      )}
+                    </dl>
+                  )}
+
+                  {(talk.button?.note || talk.button) && (
+                    <div class="talk__footer">
+                      {talk.button?.note && (
+                        <p class="talk__note">{talk.button.note}</p>
+                      )}
+                      {talk.button && (
+                        <Button
+                          link={talk.button.link}
+                          text={talk.button.text}
+                          variant="primary"
+                          size="md"
+                        />
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="hero-dates">
+			<div class="content">
+				{dates &&<span class="date">{dates}</span>}
+				{location &&<span class="place">{location}</span>}
+			</div>
+	</div>
+</section>

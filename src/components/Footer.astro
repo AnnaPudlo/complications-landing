@@ -1,0 +1,76 @@
+---
+import data from "../data/contacts.json";
+
+const { title, placeTitle, eventName, paragraphs, contacts } = data;
+---
+
+<footer class="location" id="location">
+  <div class="container">
+    <h2 class="location__title">{title}</h2>
+
+    <div class="location__inner">
+      <div class="location__head">
+        <a href="/" class="logo">
+            <img src="/images/Logo.svg" class="desktop"/>
+            <img src="/images/Logo-center.svg" class="mobile"/>
+        </a>
+      </div>
+
+      <div class="location__info">
+        {Array.isArray(paragraphs) &&
+            paragraphs.map((item) => (
+            <div class="location__item">
+                <img
+                src={item.icon}
+                alt=""
+                aria-hidden="true"
+                class="location__item-icon"
+                />
+                <p class="location__item-text">{item.text}</p>
+            </div>
+        ))}
+      </div>
+
+      <div class="location__contacts">
+        {contacts?.telegram?.href && (
+          <p>
+            <span class="location__contacts-label">
+              {contacts.telegram.label}:
+            </span>
+            <a
+              href={contacts.telegram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {contacts.telegram.href}
+            </a>
+          </p>
+        )}
+
+        {contacts?.instagram?.href && (
+          <p>
+            <span class="location__contacts-label">
+              {contacts.instagram.label}:
+            </span>
+            <a
+              href={contacts.instagram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {contacts.instagram.href}
+            </a>
+          </p>
+        )}
+
+        {contacts?.email?.href && (
+          <p>
+            <span class="location__contacts-label">
+              {contacts.email.label}:
+            </span>
+            <a href={contacts.email.href}>{contacts.email.href}</a>
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+</footer>

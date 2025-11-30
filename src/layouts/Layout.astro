@@ -1,0 +1,40 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '../styles/normalize.css'
+import '../styles/global.css'
+---
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>COMPLICATIONS - Конгрес незламних професіоналів</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+
+		<meta name="description" content="COMPLICATIONS - конференція, що поєднує глибину наукового змісту та силу людяності">
+
+		<meta property="og:title" content="СOMPLICATIONS">
+		<meta property="og:description" content="Конференція, що поєднує глибину наукового змісту та силу людяності">
+		<meta property="og:image" content="/images/Logo.svg">
+		<meta property="og:type" content="website">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="СOMPLICATIONS">
+		<meta name="twitter:description" content="Конференція, що поєднує глибину наукового змісту та силу людяності">
+		<meta name="twitter:image" content="/images/Logo.svg">
+	</head>
+	<body>
+	 	<Header />
+		<slot />
+		<Footer />
+		<script> 
+            import "../scripts/menu.js";
+        </script>
+	</body>
+</html>
+

@@ -1,0 +1,66 @@
+---
+import data from "../data/pricing.json";
+
+const { title, subtitle, items, title_bottom, text_bottom } = data;
+---
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing__header">
+      <h2 class="pricing__title">{title}</h2>
+      {subtitle && <p class="pricing__subtitle">{subtitle}</p>}
+    </div>
+
+    <div class="pricing__grid">
+      {items.map((item) => {
+        const classes = [
+          "price-card",
+          item.variant && `price-card--${item.variant}`
+        ]
+          .filter(Boolean)
+          .join(" ");
+
+        return (
+          <div class={classes}>
+            <p class="price-card__date">{item.date}</p>
+
+            {item.tag && (
+              <p class="price-card__tag">{item.tag}</p>
+            )}
+
+            <h3 class="price-card__title">
+              {item.title.split("\n").map((line) => (
+                <>
+                  {line}
+                  <br />
+                </>
+              ))}
+            </h3>
+
+            <div class="price-card__bottom">
+              <div class="price-card__price btn">{item.price}
+                <a href={item.link} class="full"></a>
+              </div>
+
+              {item.badge && (
+                <div class="price-card__badge">
+                  <span class="price-card__badge-label">
+                    {item.badge.label}
+                  </span>
+                  <span class="price-card__badge-value">
+                    {item.badge.value}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="pricing__footer">
+      {title_bottom && <h2 class="pricing__title">{title_bottom}</h2>}
+      {text_bottom && <p class="pricing__text">{text_bottom}</p>}
+    </div>
+  </div>
+</section>

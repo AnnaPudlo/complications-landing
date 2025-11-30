@@ -1,0 +1,10 @@
+---
+const {
+  link = "#",
+  text = "Придбати участь",
+  className = ""
+} = Astro.props;
+---
+<a href={link} class={`btn ${className}`}>
+    {text}
+</a>

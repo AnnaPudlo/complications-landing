@@ -1,0 +1,24 @@
+---
+import Navigation from "./Navigation.astro";
+import Hamburger from "./Hamburger.astro";
+import Button from "./Button.astro";
+import data from "../data/hero.json";
+
+const { dates } = data;
+---
+
+<header>
+    <div id="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/images/Logo.svg" />
+                <span>{dates}</span>
+            </a>
+            <Hamburger />
+            <nav class="nav-links">
+                <Navigation />
+                <Button link="#pricing"/>      
+            </nav>
+        </div>
+    </div>
+</header>
