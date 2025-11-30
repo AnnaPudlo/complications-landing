@@ -321,8 +321,7 @@ header .logo span {
         border: none;
         border-radius: 0;
         background: transparent;
-        color: #FFD600;
-        font-weight: 400;
+        color: var(--color-btn-yellow);
     }
 }
 
