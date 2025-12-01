@@ -227,9 +227,11 @@ header .logo span {
     top: 104px;
     left: 0;
     right: 0;
-    background: var(--color-btn-blue);
+    bottom: 0;
+    background: var(--color-bg-d);
     z-index: 999;
-    padding: 0 30px 30px;
+    padding: 30px 30px 30px;
+
 }
 
 .expanded {
@@ -273,15 +275,15 @@ header .logo span {
 .menu__item-link:hover,
 .menu__item-link:active,
 .menu__item-link.active {
-    border: 1px solid #313131;
+    border: 1px solid var(--color-btn-yellow);
     border-radius: 6px;
-    background: #ffc513;
-    color: #000;
+    background: var(--color-btn-yellow);
+    color: var(--color-text-d);
     font-weight: 700;
 }
 
 #header.menu-open {
-    background: var(--color-btn-blue);
+    background: var(--color-bg-d);
 }
 
 
@@ -357,6 +359,9 @@ header .logo span {
     }
     header .container {
         padding: 0 30px;
+    }
+    .nav-links {
+        border-bottom: 2px solid var(--color-btn-yellow);
     }
 }
 
@@ -854,7 +859,7 @@ header .logo span {
 .talk__note {
     color: var(--color-btn-yellow);
     font-size: var(--fz-small);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .talk__schedule {
@@ -910,7 +915,7 @@ header .logo span {
         align-items: center;
         justify-content: center;
         gap: 12px;
-        margin-bottom: 32px;
+        margin-bottom: 40px;
     }
 
     .program-day__date:before {
@@ -947,6 +952,10 @@ header .logo span {
         font-size: var(--fz-h2);
     }
 
+    .talk__event {
+        margin-bottom: 30px;
+    }
+
     .wrapper {
         overflow: hidden;
     }
@@ -955,6 +964,33 @@ header .logo span {
         position: relative;
         z-index: 2;
         padding: 0 20px;
+    }
+
+    .program__title {
+        margin-bottom: 80px;
+    }
+
+    .program-day__tag {
+        margin-bottom: 20px;
+    }
+    .program-day__speakers {
+        margin: 20px 0 30px;
+    }
+
+    .talk__description {
+        margin: 20px 0;
+    }
+
+    .talk__description:last-of-type {
+        margin: 20px 0 30px;
+    }
+
+    .program-day+.program-day {
+        margin-top: 80px;
+    }
+
+    .talk+.talk {
+        margin-top: 40px;
     }
 }
 
